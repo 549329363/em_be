@@ -1,0 +1,74 @@
+# 服务器配置
+server:
+  port: 8083
+  servlet:
+    context-path: /api
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# 数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_management?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
+    username: root
+    password: giga@2025
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-init-sql: "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
+      connection-test-query: "SELECT 1"
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      
+  # HTTP编码配置
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-request: true
+      force-response: true
+    
+  # SQL脚本初始化配置 - 禁用自动执行
+  sql:
+    init:
+      mode: never  # 改为never，不再每次启动都执行SQL脚本
+      # schema-locations: classpath:sql/schema.sql
+      # data-locations: classpath:sql/data.sql
+      # encoding: utf-8
+      # continue-on-error: false
+    
+  # JPA配置（用于自动创建表）
+  jpa:
+    hibernate:
+      ddl-auto: validate  # 改为validate，只验证表结构不创建
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false  # 关闭SQL日志以减少噪音
+
+# MyBatis Plus 配置
+mybatis-plus:
+  configuration:
+    # 开启驼峰命名转换
+    map-underscore-to-camel-case: true
+    # 显示SQL
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 逻辑删除字段
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      # 主键策略
+      id-type: auto
+  # mapper映射文件位置
+  mapper-locations: classpath:mapper/*.xml
+
+# 日志配置
+logging:
+  level:
+    com.employee.management: debug
+    org.springframework.web: debug
