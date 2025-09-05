@@ -1,3 +1,4 @@
+com\employee\management\controller\ConfigInfoController.class
 com\employee\management\controller\DatabaseFixController.class
 com\employee\management\config\SecurityConfig.class
 com\employee\management\service\impl\AuthServiceImpl.class
@@ -26,6 +27,7 @@ com\employee\management\entity\SysUser.class
 com\employee\management\dto\Result.class
 com\employee\management\mapper\SysRoleMapper.class
 com\employee\management\config\JwtAuthenticationFilter.class
+com\employee\management\config\health\ConfigHealthIndicator.class
 com\employee\management\mapper\EmployeeMapper.class
 com\employee\management\entity\SysRole.class
 com\employee\management\utils\JwtUtils.class

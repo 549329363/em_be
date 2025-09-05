@@ -1,0 +1,7 @@
+com\employee\management\config\DirectNacosTest.class
+com\employee\management\config\NacosBootstrapTest.class
+com\employee\management\config\ApplicationConfigTest.class
+com\employee\management\config\SimpleEnvironmentTest.class
+com\employee\management\config\EnvironmentVariableTest.class
+com\employee\management\config\health\ConfigHealthIndicatorTest.class
+com\employee\management\controller\ConfigInfoControllerTest.class
