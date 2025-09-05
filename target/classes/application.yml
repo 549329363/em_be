@@ -87,7 +87,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 114.55.135.154:8848
+        server-addr: ${NACOS_SERVER_ADDR:114.55.135.154:8848}
         file-extension: yml
         group: DEFAULT_GROUP
         namespace: ""
@@ -98,7 +98,7 @@ spring:
           enabled: false
         remote-first: false
       discovery:
-        server-addr: 114.55.135.154:8848
+        server-addr: ${NACOS_SERVER_ADDR:114.55.135.154:8848}
         group: DEFAULT_GROUP
         namespace: ""
         username: ${NACOS_USERNAME:nacos}

@@ -26,7 +26,7 @@ public class ConfigInfoController {
     @Autowired(required = false)
     private ConfigService configService;
 
-    @Value("${spring.cloud.nacos.config.server-addr:114.55.135.154:8848}")
+    @Value("${spring.cloud.nacos.config.server-addr:${NACOS_SERVER_ADDR:114.55.135.154:8848}}")
     private String serverAddr;
 
     @Value("${spring.profiles.active:default}")
